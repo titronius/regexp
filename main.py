@@ -1,7 +1,6 @@
-from pprint import pprint
-# читаем адресную книгу в формате CSV в список contacts_list
 import csv
 import re
+# читаем адресную книгу в формате CSV в список contacts_list
 with open("phonebook_raw.csv", encoding="utf-8") as f:
   rows = csv.reader(f, delimiter=",")
   contacts_list = list(rows)
@@ -44,8 +43,6 @@ for number, contact in enumerate(clear_contacts_list):
     else:
         result = re.sub(pattern, r"+7(\3)\5-\7-\9", contact[5])
     contact[5] = result
-
-pprint(clear_contacts_list)
 
 # код для записи файла в формате CSV
 with open("phonebook.csv", "w", encoding="utf-8") as f:
